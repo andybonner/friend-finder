@@ -265,12 +265,11 @@
           console.log("post received response", data);
           // function to build table comparing the user's answers to either a character or a previous user
           function buildTable(targetElement, targetObj) {
-            var table = $("<table>");
             var headers = $("<tr>");
             var targetHeader = $("<th>");
             targetHeader.text(targetObj.name)
             headers.append($("<th>Question</th>"), $("<th>You</th>"), targetHeader);
-            table.append(headers);
+            targetElement.append(headers);
             for (var i = 0; i < userData.answers.length; i++) {
               var userAnswer = userData.answers[i];
               var targetAnswer = targetObj.answers[i];
@@ -282,9 +281,8 @@
               var theirAnswer = $("<td>");
               theirAnswer.text(targetAnswer);
               row.append(question, yourAnswer, theirAnswer);
-              table.append(row);
+              targetElement.append(row);
             }
-            targetElement.append(table);
           }
           // populate modal
           $("#matchName").text(data.character.name);
