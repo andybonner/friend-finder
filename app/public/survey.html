@@ -284,6 +284,9 @@
               targetElement.append(row);
             }
           }
+          // clear modal of earlier tables
+          $("#character-table").empty();
+          $("#users-table").empty();
           // populate modal
           $("#matchName").text(data.character.name);
           $('#matchImg').attr("src", data.character.photoURL);
